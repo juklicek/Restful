@@ -23,7 +23,7 @@ use Nette\Http\Url;
  *
  * @property-read IGrant $grantType
  */
-class OAuth2Presenter extends ResourcePresenter implements IOAuthPresenter
+class OAuth2Presenter extends ResourcePresenter
 {
 
 	/** @var GrantContext */
