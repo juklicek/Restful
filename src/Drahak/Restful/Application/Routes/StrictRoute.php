@@ -51,7 +51,7 @@ class StrictRoute implements IRouter
 	 * @param  IRequest $request 
 	 * @return Request            
 	 */
-	public function match(Http\IRequest $request)
+	public function match(Http\IRequest $request):array
 	{
 		$path = $request->url->getPathInfo();
 		if (!Strings::contains($path, $this->prefix)) {
@@ -64,17 +64,17 @@ class StrictRoute implements IRouter
 
 		$action = $this->getActionName($request->getMethod(), $pathArguments);
 		$params = $this->getPathParameters($pathArguments);
-		$params[Route::MODULE_KEY] = $this->module;
-		$params[Route::PRESENTER_KEY] = $pathParts[0];
+		$params['module'] = $this->module;
+		$params['presenter'] = $pathParts[0];
 		$params['action'] = $action;
 
-		$presenter = ($this->module ? $this->module . ':' : '') . $params[Route::PRESENTER_KEY];
+		$presenter = ($this->module ? $this->module . ':' : '') . $params['presenter'];
 
 		$appRequest = new Application\Request($presenter, $request->getMethod(), $params, $request->getPost(), $request->getFiles());
 		return $appRequest;
 	}
 	
-	public function constructUrl(Application\Request $request, Url $refUrl)
+	public function constructUrl(array $params, \Nette\Http\UrlScript $refUrl):string
 	{
 		return NULL;
 	}
