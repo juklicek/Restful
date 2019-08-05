@@ -6,7 +6,6 @@ use Drahak\Restful\Application\IResourceRouter;
 use Nette\Application\IRouter;
 use Nette\Templating\Helpers;
 use Tracy\IBarPanel;
-use Nette\Object;
 use Nette\Utils\Html;
 
 if (!interface_exists('Tracy\IBarPanel')) {
@@ -18,7 +17,7 @@ if (!interface_exists('Tracy\IBarPanel')) {
  * @package Drahak\Restful\Diagnostics
  * @author Drahomír Hanák
  */
-class ResourceRouterPanel extends Object implements IBarPanel
+class ResourceRouterPanel implements IBarPanel
 {
 
 	/** @var IRouter */

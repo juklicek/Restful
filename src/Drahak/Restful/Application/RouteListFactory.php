@@ -1,7 +1,6 @@
 <?php
 namespace Drahak\Restful\Application;
 
-use Nette\Object;
 use Nette\DI\Container;
 use Nette\Caching\IStorage;
 use Nette\Loaders\RobotLoader;
@@ -21,8 +20,10 @@ use Drahak\Restful\Application\Routes\ResourceRouteList;
  * @property-write string $module
  * @property-write string $prefix
  */
-class RouteListFactory extends Object implements IRouteListFactory
+class RouteListFactory implements IRouteListFactory
 {
+
+    use \Nette\SmartObject;
 
 	/** @var RobotLoader */
 	private $loader;

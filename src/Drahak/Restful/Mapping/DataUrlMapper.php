@@ -2,7 +2,6 @@
 namespace Drahak\Restful\Mapping;
 
 use Drahak\Restful\Resource\Media;
-use Nette\Object;
 use Nette\Templating\Helpers;
 use Nette\Utils\Strings;
 use Drahak\Restful\InvalidArgumentException;
@@ -12,8 +11,10 @@ use Drahak\Restful\InvalidArgumentException;
  * @package Drahak\Restful\Mapping
  * @author Drahomír Hanák
  */
-class DataUrlMapper extends Object implements IMapper
+class DataUrlMapper implements IMapper
 {
+
+    use \Nette\SmartObject;
 
 	/**
 	 * Create DATA URL from file

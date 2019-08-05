@@ -1,7 +1,6 @@
 <?php
 namespace Drahak\Restful\Application;
 
-use Nette\Object;
 use Nette\Utils\Strings;
 use Nette\Reflection\Method;
 use Nette\Http\IRequest;
@@ -14,8 +13,9 @@ use Drahak\Restful\InvalidArgumentException;
  *
  * @property-read string[] $methods
  */
-class RouteAnnotation extends Object implements IAnnotationParser
+class RouteAnnotation implements IAnnotationParser
 {
+    use \Nette\SmartObject;
 
 	/** @var array */
 	private $methods = array(

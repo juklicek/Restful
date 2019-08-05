@@ -3,7 +3,6 @@ namespace Drahak\Restful\Converters;
 
 use stdClass;
 use Traversable;
-use Nette\Object;
 use Drahak\Restful\IResource;
 
 /**
@@ -11,8 +10,10 @@ use Drahak\Restful\IResource;
  * @package Drahak\Restful\Converters
  * @author Drahomír Hanák
  */
-class ObjectConverter extends Object implements IConverter
+class ObjectConverter implements IConverter
 {
+
+    use \Nette\SmartObject;
 
 	/**
 	 * Converts stdClass and traversable objects in resource to array

@@ -8,7 +8,6 @@ use Nette\Http\IResponse;
 use Nette\Http\IRequest;
 use Nette\Http\Response;
 use Nette\Http\Url;
-use Nette\Object;
 use Nette\Utils\Paginator;
 
 /**
@@ -16,8 +15,10 @@ use Nette\Utils\Paginator;
  * @package Drahak\Restful\Http
  * @author Drahomír Hanák
  */
-class ResponseFactory extends Object
+class ResponseFactory
 {
+
+    use \Nette\SmartObject;
 
 	/** @var IRequest */
 	private $request;

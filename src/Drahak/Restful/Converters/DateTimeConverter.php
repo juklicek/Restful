@@ -1,7 +1,6 @@
 <?php
 namespace Drahak\Restful\Converters;
 
-use Nette\Object;
 use Traversable;
 use DateTime;
 
@@ -10,8 +9,9 @@ use DateTime;
  * @package Drahak\Restful\Converters
  * @author Drahomír Hanák
  */
-class DateTimeConverter extends Object implements IConverter
+class DateTimeConverter implements IConverter
 {
+    use \Nette\SmartObject;
 
 	/** DateTime format */
 	private $format = 'c';
