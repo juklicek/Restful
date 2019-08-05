@@ -54,7 +54,7 @@ class RestfulExtension extends CompilerExtension
 		'timeFormat' => 'c',
 		'cacheDir' => '%tempDir%/cache',
 		'jsonpKey' => 'jsonp',
-                'prettyPrint' => TRUE,
+        'prettyPrint' => TRUE,
 		'prettyPrintKey' => 'pretty',
 		'routes' => array(
 			'generateAtStart' => FALSE,
@@ -78,7 +78,8 @@ class RestfulExtension extends CompilerExtension
 	public function loadConfiguration()
 	{
 		$container = $this->getContainerBuilder();
-		$config = $this->getConfig($this->defaults);
+		$this->setConfig($this->defaults);
+		$config = $this->getConfig();
 
 		// Additional module
 		$this->loadRestful($container, $config);
@@ -340,9 +341,9 @@ class RestfulExtension extends CompilerExtension
 	 */
 	private function getByType(ContainerBuilder $container, $type)
 	{
-		$definitionas = $container->getDefinitions();
+        $definitionas = $container->getDefinitions();
 		foreach ($definitionas as $definition) {
-			if ($definition->class === $type) {
+			if ($definition->getType() === $type) {
 				return $definition;
 			}
 		}
